@@ -41,14 +41,39 @@ namespace Company.Web.Controllers
                 return View(department);
             }
         }
-        public IActionResult Details(int? id)
+        public IActionResult Details(int? id , string viewName ="Details")
         {
            var department = _departmentService.GetById((int)id);
             if (department is null)
             {
                 return RedirectToAction("NotFoundPage",null,"Home");
             }
-            return View(department);
+            return View(viewName,department);
+        }
+        [HttpGet]
+        public IActionResult Update (int? id)
+        {
+            return Details(id, "Update");
+        }
+        [HttpPost]
+        public IActionResult Update(int? id , Department department)
+        {
+
+           if(department.Id!=id.Value)
+                return RedirectToAction("NotFoundPage", null, "Home");
+           _departmentService.Update(department);
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Delete(int? id)
+        {
+            var department = _departmentService.GetById((int)id);
+            if (department is null)
+            {
+                return RedirectToAction("NotFoundPage", null, "Home");
+            }
+            _departmentService.Delete(department);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
+
