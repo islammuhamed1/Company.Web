@@ -2,10 +2,11 @@
 @{
     ViewData["Title"] = "Index";
 }
+<a class="btn btn-primary" asp-controller="Department" asp-action="Create">Create Department</a>
+
 <h1>All Departments</h1>
 <br />
 <br />
-<a class="btn btn-primary" asp-controller="Departments" asp-action="Create">Create Department</a>
 <br />
 @if (Model.Count() > 0)
 {

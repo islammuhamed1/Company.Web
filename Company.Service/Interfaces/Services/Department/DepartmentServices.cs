@@ -26,7 +26,7 @@ namespace Company.Service.Services
 
         public void Delete(Department entity)
         {
-            throw new NotImplementedException();
+            _departmentRepository.Delete(entity);
         }
 
         public IEnumerable<Department> GetAll()
@@ -46,9 +46,17 @@ namespace Company.Service.Services
             return department;
         }
 
-        public void Update(Department entity)
+        public void Update(Department department)
         {
-            throw new NotImplementedException();
+            //var dept = GetById(department.Id);
+            //if (dept.Name != department.Name)
+            //{
+            //    if (GetAll().Any(x => x.Name == department.Name)) ;
+            //        throw new Exception("Department Name Already Exist");
+            //}
+            //dept.Name = department.Name;
+            //dept.Code = department.Code;
+            _departmentRepository.Update(department);
         }
     }
 }
