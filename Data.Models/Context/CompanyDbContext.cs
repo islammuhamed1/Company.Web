@@ -13,11 +13,13 @@ namespace Company.Data.Context
         override protected void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.Entity<BaseEntity>().HasQueryFilter(x => !x.IsDeleted);
             base.OnModelCreating(modelBuilder);
+
         }
 
 
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<DepartmentViewModel> Departments { get; set; }
+        public DbSet<EmployeeViewModel> Employees { get; set; }
     }
 }

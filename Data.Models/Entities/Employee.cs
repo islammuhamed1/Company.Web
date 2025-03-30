@@ -1,7 +1,7 @@
 ﻿
 namespace Company.Data.Entities
 {
-   public class Employee :BaseEntity
+   public class Employee : BaseEntity
     {
         public int Age { get; set; }
         public string Name { get; set; }

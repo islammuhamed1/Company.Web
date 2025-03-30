@@ -3,7 +3,8 @@ using Company.Data.Context;
 using Company.Repository.Interfaces;
 using Company.Repository.Repositories;
 using Company.Service.Interfaces;
-using Company.Service.Services;
+using Company.Service.Services.Department;
+using Company.Service.Mapping;
 
 namespace Company.Web
 {
@@ -19,8 +20,9 @@ namespace Company.Web
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
-            builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+            builder.Services.AddAutoMapper(x=>x.AddProfile(new EmployeeProfile()));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
