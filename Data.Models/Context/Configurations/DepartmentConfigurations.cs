@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Company.Data.Context.Configurations
 {
-    class DepartmentConfigurations : IEntityTypeConfiguration<Department>
+    class DepartmentConfigurations : IEntityTypeConfiguration<DepartmentViewModel>
     {
-        public void Configure(EntityTypeBuilder<Department> builder)
+        public void Configure(EntityTypeBuilder<DepartmentViewModel> builder)
         {
             builder.Property(e => e.Id)
                    .UseIdentityColumn(10,10);
