@@ -1,11 +1,13 @@
 ﻿using Company.Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 
 namespace Company.Data.Context
 {
-    public class CompanyDbContext : DbContext
+    public class CompanyDbContext : IdentityDbContext<IdentityUser>
     {
         public CompanyDbContext(DbContextOptions options) : base(options)
         {
@@ -19,7 +21,7 @@ namespace Company.Data.Context
         }
 
 
-        public DbSet<DepartmentViewModel> Departments { get; set; }
-        public DbSet<EmployeeViewModel> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

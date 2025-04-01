@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Company.Data.Context.Configurations
 {
-    class EmployeeConfigurations : IEntityTypeConfiguration<EmployeeViewModel>
+    class EmployeeConfigurations : IEntityTypeConfiguration<Employee>
     {
-        public void Configure(EntityTypeBuilder<EmployeeViewModel> builder)
+        public void Configure(EntityTypeBuilder<Employee> builder)
         {
             builder.Property(e => e.Name)
                    .IsRequired()
