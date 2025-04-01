@@ -29,6 +29,7 @@ namespace Company.Web.Controllers
 
 
         [HttpGet]
+ 
         public IActionResult Create()
         {
             var departments = _departmentService.GetAll();
@@ -36,6 +37,7 @@ namespace Company.Web.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(EmployeeDto employee)
         {
             if (ModelState.IsValid)
